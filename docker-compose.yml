@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+    react-app:
+        build:
+            context: ./react-app
+        image: react-app
+        ports:
+          - "3000:3000"
+        volumes:
+            - ./react-app:/app
+            - /app/node_modules
+        environment:
+            - WATCHPACK_POLLING=true
+            - CHOKIDAR_USEPOLLING=true
+            - TEST_VALUE=this_is_test_value
